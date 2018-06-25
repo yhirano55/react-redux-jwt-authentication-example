@@ -1,24 +1,18 @@
-# README
+# react-redux-jwt-authentication-example
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![](https://github.com/yhirano55/react-redux-jwt-authentication-example/blob/master/capture.gif?raw=true)
 
-Things you may want to cover:
+## local
 
-* Ruby version
+```
+$ bin/setup
+$ bin/rails server
+```
 
-* System dependencies
+## docker
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+$ docker-compose build
+$ docker-compose up
+$ docker-compose exec app bin/setup
+```
