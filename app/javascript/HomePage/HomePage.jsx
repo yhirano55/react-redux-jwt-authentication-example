@@ -15,6 +15,7 @@ class HomePage extends React.Component {
 
   render() {
     const { user, users } = this.props
+    console.log(users)
     return (
       <div className="row justify-content-center">
         <div className="col-6">
@@ -27,13 +28,15 @@ class HomePage extends React.Component {
           {users.loading && <em>Loading users...</em>}
           {users.error && <span className="text-danger">ERROR: {users.error}</span>}
           {users.items &&
-            <ul>
-              {users.items.map((user, index) =>
-                <li key={user.id}>
-                  {user.username}
-                </li>
+            <section>
+              {users.items.data.map((user, index) =>
+                <ul key={user.id}>
+                  <li>{user.id}</li>
+                  <li>{user.attributes.username}</li>
+                  <li>{user.attributes.email}</li>
+                </ul>
               )}
-            </ul>
+            </section>
           }
         </div>
       </div>
