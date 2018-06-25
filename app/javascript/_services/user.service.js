@@ -41,7 +41,7 @@ function getAll() {
   return fetch(`${config.apiUrl}/users`, requestOptions).then(handleResponse)
 }
 
-function handleResponse(response) {
+export function handleResponse(response) {
   return response.json().then(data => {
     if (!response.ok) {
       if (response.status === 401) {

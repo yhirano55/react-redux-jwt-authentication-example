@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import { userActions } from '../_actions'
+import { userActions, postActions } from '../_actions'
 
 class HomePage extends React.Component {
   componentDidMount() {
     this.props.dispatch(userActions.getAll())
+    this.props.dispatch(postActions.getAll())
   }
 
   handleDeleteUser(id) {
@@ -14,8 +15,7 @@ class HomePage extends React.Component {
   }
 
   render() {
-    const { user, users } = this.props
-    console.log(users)
+    const { user, users, posts } = this.props
     return (
       <div className="row justify-content-center">
         <div className="col-6">
@@ -24,6 +24,7 @@ class HomePage extends React.Component {
           <p>
             <Link to="/login" className="btn btn-primary btn-block">Logout</Link>
           </p>
+
           <h3>Users from secure api end point:</h3>
           {users.loading && <em>Loading users...</em>}
           {users.error && <span className="text-danger">ERROR: {users.error}</span>}
@@ -38,6 +39,21 @@ class HomePage extends React.Component {
               )}
             </section>
           }
+
+          <h3>Posts from secure api end point:</h3>
+          {posts.loading && <em>Loading posts...</em>}
+          {posts.error && <span className="text-danger">ERROR: {posts.error}</span>}
+          {posts.items &&
+            <section>
+              {posts.items.data.map((post, index) =>
+                <ul key={post.id}>
+                  <li>{post.id}</li>
+                  <li>{post.attributes.title}</li>
+                  <li>{post.attributes.body}</li>
+                </ul>
+              )}
+            </section>
+          }
         </div>
       </div>
     )
@@ -45,11 +61,12 @@ class HomePage extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { users, authentication } = state
+  const { users, posts, authentication } = state
   const { user } = authentication
   return {
     user,
-    users
+    users,
+    posts,
   }
 }
 
