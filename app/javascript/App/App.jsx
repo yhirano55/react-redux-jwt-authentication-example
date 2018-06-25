@@ -6,6 +6,8 @@ import { history } from '../_helpers'
 import { alertActions } from '../_actions'
 import { PrivateRoute } from '../_components'
 import { HomePage } from '../HomePage'
+import { PostIndexPage } from '../PostIndexPage'
+import { UserIndexPage } from '../UserIndexPage'
 import { LoginPage } from '../LoginPage'
 
 class App extends React.Component {
@@ -33,6 +35,8 @@ class App extends React.Component {
           <Router history={history}>
             <React.Fragment>
               <PrivateRoute exact path="/" component={HomePage} />
+              <PrivateRoute exact path="/users" component={UserIndexPage} />
+              <PrivateRoute exact path="/posts" component={PostIndexPage} />
               <Route path="/login" component={LoginPage} />
             </React.Fragment>
           </Router>
