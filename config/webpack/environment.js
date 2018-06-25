@@ -1,7 +1,7 @@
 const { environment } = require('@rails/webpacker')
 environment.config.externals = {
   config: JSON.stringify({
-    apiUrl: 'http://localhost:3000'
+    apiUrl: '/api/v1'
   })
 }
 

@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     return (
       <div className="row justify-content-center">
         <div className="col-6">
-          <h1>Hi {user.firstName}!</h1>
+          <h1>Hi {user.username}!</h1>
           <p>You are logged in with React & JWT!!</p>
           <p>
             <Link to="/login" className="btn btn-primary btn-block">Logout</Link>
@@ -30,7 +30,7 @@ class HomePage extends React.Component {
             <ul>
               {users.items.map((user, index) =>
                 <li key={user.id}>
-                  {user.firstName + ' ' + user.lastName}
+                  {user.username}
                 </li>
               )}
             </ul>

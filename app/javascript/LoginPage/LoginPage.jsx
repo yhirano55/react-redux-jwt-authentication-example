@@ -12,7 +12,7 @@ class LoginPage extends React.Component {
     this.props.dispatch(userActions.logout())
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       submitted: false
     }
@@ -30,26 +30,26 @@ class LoginPage extends React.Component {
     e.preventDefault()
 
     this.setState({ submitted: true })
-    const { username, password } = this.state
+    const { email, password } = this.state
     const { dispatch } = this.props
-    if (username && password) {
-      dispatch(userActions.login(username, password))
+    if (email && password) {
+      dispatch(userActions.login(email, password))
     }
   }
 
   render() {
     const { loggingIn } = this.props
-    const { username, password, submitted } = this.state
+    const { email, password, submitted } = this.state
     return (
       <div className="row justify-content-center align-items-center">
         <div className="col-6">
           <h1>Login</h1>
           <form name="form" onSubmit={this.handleSubmit}>
-            <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-              <label htmlFor="username">Username</label>
-              <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-              {submitted && !username &&
-                <small className="form-text text-danger">Username is required</small>
+            <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
+              <label htmlFor="email">Email</label>
+              <input type="email" className="form-control" name="email" value={email} onChange={this.handleChange} />
+              {submitted && !email &&
+                <small className="form-text text-danger">Email is required</small>
               }
             </div>
             <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>

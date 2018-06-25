@@ -7,18 +7,18 @@ export const userService = {
   getAll
 }
 
-function login(username, password) {
+function login(email, password) {
   const requestOptions = {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ username, password })
+    body: JSON.stringify({ auth: { email, password } })
   }
 
-  return fetch(`${config.apiUrl}/users/authenticate`, requestOptions)
+  return fetch(`${config.apiUrl}/user_token`, requestOptions)
     .then(handleResponse)
     .then(user => {
       // login successful if there's a jwt token in the response
-      if (user.token) {
+      if (user.jwt) {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         localStorage.setItem('user', JSON.stringify(user))
       }
