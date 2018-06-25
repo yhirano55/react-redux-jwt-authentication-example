@@ -16,24 +16,26 @@ class HomePage extends React.Component {
   render() {
     const { user, users } = this.props
     return (
-      <div className="col-md-6 col-md-offset-3">
-        <h1>Hi {user.firstName}!</h1>
-        <p>You are logged in with React & JWT!!</p>
-        <h3>Users from secure api end point:</h3>
-        {users.loading && <em>Loading users...</em>}
-        {users.error && <span className="text-danger">ERROR: {users.error}</span>}
-        {users.items &&
-          <ul>
-            {users.items.map((user, index) =>
-              <li key={user.id}>
-                {user.firstName + ' ' + user.lastName}
-              </li>
-            )}
-          </ul>
-        }
-        <p>
-          <Link to="/login">Logout</Link>
-        </p>
+      <div className="row justify-content-center">
+        <div className="col-6">
+          <h1>Hi {user.firstName}!</h1>
+          <p>You are logged in with React & JWT!!</p>
+          <p>
+            <Link to="/login" className="btn btn-primary btn-block">Logout</Link>
+          </p>
+          <h3>Users from secure api end point:</h3>
+          {users.loading && <em>Loading users...</em>}
+          {users.error && <span className="text-danger">ERROR: {users.error}</span>}
+          {users.items &&
+            <ul>
+              {users.items.map((user, index) =>
+                <li key={user.id}>
+                  {user.firstName + ' ' + user.lastName}
+                </li>
+              )}
+            </ul>
+          }
+        </div>
       </div>
     )
   }

@@ -8,6 +8,8 @@ import { App } from 'App'
 import { configureFakeBackend } from '_helpers'
 configureFakeBackend()
 
+import 'stylesheets/application'
+
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
     <Provider store={store}>

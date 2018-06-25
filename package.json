@@ -4,6 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.1.1",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
