@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     jsonapi_resources :posts
   end
 
-  get "*path", to: "application#root"
-  root "application#root"
+  get "*path", to: "root#show"
+  root "root#show"
 end

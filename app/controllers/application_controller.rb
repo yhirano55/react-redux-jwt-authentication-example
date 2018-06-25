@@ -1,5 +1,3 @@
-class ApplicationController < ActionController::Base
-  def root
-    render html: "", layout: true
-  end
+class ApplicationController < ActionController::API
+  include Knock::Authenticable
 end
