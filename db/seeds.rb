@@ -23,3 +23,12 @@ User.create(
     }
   end
 )
+
+Post.create(
+  Array.new(30) do
+    {
+      title: Faker::Lorem.sentence,
+      body: Faker::Lorem.paragraph,
+    }
+  end
+)
