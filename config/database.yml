@@ -82,5 +82,6 @@ test:
 production:
   <<: *default
   database: react-redux-jwt-authentication-example_production
+  host: <%= ENV['REACT-REDUX-JWT-AUTHENTICATION-EXAMPLE_DATABASE_HOST'] %>
   username: react-redux-jwt-authentication-example
   password: <%= ENV['REACT-REDUX-JWT-AUTHENTICATION-EXAMPLE_DATABASE_PASSWORD'] %>
