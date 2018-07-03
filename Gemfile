@@ -40,11 +40,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'knock'
 gem 'jsonapi-resources'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'faker'
 end
 
 group :development do
